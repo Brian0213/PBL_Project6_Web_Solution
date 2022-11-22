@@ -631,3 +631,9 @@ Run `ls -l`
 `sudo setsebool -P httpd_can_network_connect_db 1`
 
 ![Word](./image/wordpress-success-output.PNG)
+
+N.B.
+
+- Documentation on how to install PHP:
+
+[title](https://www.tecmint.com/install-lamp-on-centos-8/)
