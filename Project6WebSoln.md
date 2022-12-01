@@ -1,6 +1,6 @@
-## Documentation for Project 6: IMPLEMENT A CLIENT SERVER ARCHITECTURE USING MYSQL DATABASE MANAGEMENT SYSTEM (DBMS)
+# Documentation for Project 6: IMPLEMENT A CLIENT SERVER ARCHITECTURE USING MYSQL DATABASE MANAGEMENT SYSTEM (DBMS)
 
-**Preparing prerequisites**
+## Preparing prerequisites
 
 - Create a new EC2 Instance of t2.nano family with RedHat 20.04 LTS (HVM) image.
 
@@ -55,9 +55,9 @@ The output should display as :
 
 ![Xvdf Partition Output](./image/xvdf-part1-output.PNG)
 
-![Xvdg Partition Output](./image/xvdg-part1-outpu.PNG)
+![Xvdg Partition Output](./image/xvdg-part1-output.PNG)
 
-![Xvdh Partition Output](./image/xvdh-part1-outpu.PNG)
+![Xvdh Partition Output](./image/xvdh-part1-output.PNG)
 
 `sudo gdisk /dev/xvdf`
 
@@ -83,7 +83,7 @@ The output should display as :
 
 `sudo lvmdiskscan`
 
-![Lvmdiskscan Status](./image/lvmdiskscan-status.PNG)
+![Lvmdiskscan Status](./image/lvmdiskscan-output.PNG)
 
 - Use pvcreate utility to mark each of 3 disks as physical volumes (PVs) to be used by LVM:
 
@@ -193,11 +193,11 @@ The output should display as :
 
 `sudo ls -l /var/log`
 
-![Restore logs Directory Success](./image/check-success-status-restore-log-directory.PNG)
+![Restore logs Directory Success](./image/check-success-status-recover-log.PNG)
 
 - Update /etc/fstab file so that the mount configuration will persist after restart of the server:
 
-**UPDATE THE /ETC/FSTAB FILE**
+### UPDATE THE /ETC/FSTAB FILE
 
 -The UUID of the device will be used to update the /etc/fstab file;
 
@@ -227,7 +227,7 @@ The output should display as :
 
 ![Verify Setup](./image/verify-setup-output.PNG)
 
-**Prepare the Database Server**
+#### Prepare the Database Server
 
 - Launch an EC2 instance that will serve as "DB_Server". Create 3 volumes in the same AZ as your Web Server EC2, each of 10 GiB.
 Learn How to Add EBS Volume to an EC2 instance here.
@@ -276,7 +276,7 @@ The output should display as :
 
 `sudo pvcreate /dev/xvdf1 /dev/xvdg1 /dev/xvdh1`
 
-![Pvcreate Physical Volumes Dbserver](./image/pvcreate-volume-dbserver-output.PNG)
+![Pvcreate Physical Volumes Dbserver](./image/pvcreate-volume-output.PNG)
 
 - Use vgcreate utility to add all 3 PVs to a volume group (VG). Name the VG webdata-vg:
 
@@ -532,7 +532,7 @@ The output should display as :
 
 `sudo systemctl status mysqld`
 
-![Copy Wordpress to Html](./image/start-enable-status-webserver.PNG)000
+![Copy Wordpress to Html](./image/start-enable-status-on-webserver.PNG)000
 
 - Install MySQL on your DB Server EC2:
 
@@ -556,7 +556,7 @@ The output should display as :
 
 `sudo systemctl status mysqld`
 
-![Status Mysqld Check](./image/start-enable-status-dataBserver.PNG)
+![Status Mysqld Check](./image/start-enable-status-on-dataBserver.PNG)
 
 `sudo mysql_secure_installation`
 
@@ -566,7 +566,7 @@ The output should display as :
 
 `sudo mysql -u root -p`
 
-![Mysql Launch](./image/mysql-launch-status.PNG)
+![Mysql Launch](./image/my-launch-status.PNG)
 
 - Create database:
 
@@ -614,7 +614,7 @@ The output should display as :
 
 - Comuunication between webserver and dbserver:
 
-![Show Databases](./image/webdserver-and-dbserver-communication-success.PNG)
+![Show Databases](./image/webserver-and-dbserver-communication-success.PNG)
 
 - Chnage permissions and configurations so Apache can use WordPress:
 
